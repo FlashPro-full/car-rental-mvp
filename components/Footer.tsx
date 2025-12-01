@@ -65,7 +65,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>Email: info@carrental.com</li>
-              <li>Phone: +1 (555) 123-4567</li>
+              <li>Phone: +x (xxx) xxx-xxxx</li>
               <li>Address: 123 Main St, City, State</li>
             </ul>
           </div>
