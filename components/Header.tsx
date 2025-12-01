@@ -1,25 +1,27 @@
+import Link from 'next/link'
+
 export default function Header() {
   return (
     <header className="bg-dark-gray text-white py-4 px-8">
       <nav className="flex items-center justify-between max-w-7xl mx-auto">
         <div className="flex items-center space-x-8">
-          <a href="#" className="text-sm font-medium hover:text-gray-300 transition">
+          <Link href="/" className="text-sm font-medium hover:text-gray-300 transition">
             HOME
-          </a>
-          <a href="#" className="text-sm font-medium hover:text-gray-300 transition">
+          </Link>
+          <Link href="/#cars" className="text-sm font-medium hover:text-gray-300 transition">
             CARS
-          </a>
-          <a href="#" className="text-sm font-medium hover:text-gray-300 transition">
+          </Link>
+          <Link href="/#bookings" className="text-sm font-medium hover:text-gray-300 transition">
             BOOKINGS
-          </a>
-          <a href="#" className="text-sm font-medium hover:text-gray-300 transition">
+          </Link>
+          <Link href="/#customers" className="text-sm font-medium hover:text-gray-300 transition">
             CUSTOMERS
-          </a>
+          </Link>
         </div>
         <div className="flex items-center space-x-4">
-          <a href="#" className="text-sm font-medium hover:text-gray-300 transition">
+          <Link href="/login" className="text-sm font-medium hover:text-gray-300 transition">
             LOGIN
-          </a>
+          </Link>
         </div>
       </nav>
     </header>

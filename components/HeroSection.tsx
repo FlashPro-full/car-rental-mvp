@@ -14,7 +14,13 @@ export default function HeroSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
+    // Redirect to cars page with search params
+    const params = new URLSearchParams()
+    if (formData.location) params.set('location', formData.location)
+    if (formData.pickupDate) params.set('pickup', formData.pickupDate)
+    if (formData.returnDate) params.set('return', formData.returnDate)
+    if (formData.carType) params.set('type', formData.carType)
+    window.location.href = `/cars?${params.toString()}`
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
