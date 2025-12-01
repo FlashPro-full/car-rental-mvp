@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 
 interface Car {
   id: number
@@ -66,11 +67,12 @@ export default function CarListings() {
             key={car.id}
             className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow"
           >
-            <div className="h-40 bg-gray-200 overflow-hidden">
-              <img
+            <div className="h-40 bg-gray-200 overflow-hidden relative">
+              <Image
                 src={car.image}
                 alt={car.name}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
               />
             </div>
             <div className="p-4">

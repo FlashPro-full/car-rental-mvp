@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function ContentSection() {
   const cards = [
     {
@@ -29,11 +31,12 @@ export default function ContentSection() {
               key={card.id}
               className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="h-48 bg-gray-200 overflow-hidden">
-                <img
+              <div className="h-48 bg-gray-200 overflow-hidden relative">
+                <Image
                   src={card.image}
                   alt={card.title}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
               </div>
               <div className="p-6">

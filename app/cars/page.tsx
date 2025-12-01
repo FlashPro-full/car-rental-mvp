@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface Car {
   id: number
@@ -144,11 +145,12 @@ export default function CarsPage() {
               key={car.id}
               className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow"
             >
-              <div className="h-48 bg-gray-200 overflow-hidden">
-                <img
+              <div className="h-48 bg-gray-200 overflow-hidden relative">
+                <Image
                   src={car.image}
                   alt={car.name}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
               </div>
               <div className="p-6">
