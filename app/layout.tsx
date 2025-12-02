@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { AppProvider } from '@/contexts/AppContext'
+import { Toaster } from 'react-hot-toast'
 
 export const metadata: Metadata = {
   title: 'Car Rental Management System',
@@ -13,7 +15,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <AppProvider>
+          {children}
+          <Toaster position="top-right" />
+        </AppProvider>
+      </body>
     </html>
   )
 }

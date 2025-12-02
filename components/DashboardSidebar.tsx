@@ -10,11 +10,10 @@ export default function DashboardSidebar() {
 
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: '📊', path: '/dashboard' },
-    { id: 'fleet', label: 'Fleet Management', icon: '🚗', path: '/dashboard' },
+    { id: 'fleet', label: 'Fleet Management', icon: '🚗', path: '/dashboard/fleet' },
     { id: 'bookings', label: 'Bookings', icon: '📅', path: '/dashboard/bookings' },
-    { id: 'customers', label: 'Customers', icon: '👥', path: '/dashboard' },
-    { id: 'reports', label: 'Reports', icon: '📈', path: '/dashboard' },
-    { id: 'settings', label: 'Settings', icon: '⚙️', path: '/dashboard' },
+    { id: 'mobile', label: 'Mobile Admin', icon: '📱', path: '/dashboard/mobile' },
+    { id: 'damage', label: 'Damage Inspection', icon: '🔧', path: '/damage-inspection' },
   ]
 
   const handleNavigation = (path: string) => {

@@ -3,9 +3,12 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { useApp } from '@/contexts/AppContext'
+import toast from 'react-hot-toast'
 
 export default function LoginPage() {
   const router = useRouter()
+  const { login } = useApp()
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -21,8 +24,10 @@ export default function LoginPage() {
     // Simulate authentication
     setTimeout(() => {
       if (formData.email && formData.password) {
-        localStorage.setItem('isAuthenticated', 'true')
-        localStorage.setItem('userEmail', formData.email)
+        const role = formData.email.includes('admin') ? 'admin' : 'customer'
+        const name = formData.email.split('@')[0]
+        login(formData.email, name, role)
+        toast.success('Login successful!')
         router.push('/dashboard')
       } else {
         setError('Please fill in all fields')
@@ -41,6 +46,11 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center px-4">
       <div className="max-w-md w-full">
+        <div className="mb-4">
+          <Link href="/" className="text-gray-600 hover:text-gray-800 flex items-center">
+            ← Back to Home
+          </Link>
+        </div>
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-gray-800 mb-2">

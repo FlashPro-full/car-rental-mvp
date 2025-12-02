@@ -5,12 +5,9 @@ import { useRouter } from 'next/navigation'
 import { useApp } from '@/contexts/AppContext'
 import DashboardHeader from '@/components/DashboardHeader'
 import DashboardSidebar from '@/components/DashboardSidebar'
-import CarListings from '@/components/CarListings'
-import FeaturedCar from '@/components/FeaturedCar'
-import FilterPanel from '@/components/FilterPanel'
 import GanttChart from '@/components/GanttChart'
 
-export default function DashboardPage() {
+export default function FleetManagementPage() {
   const router = useRouter()
   const { isAuthenticated } = useApp()
 
@@ -30,18 +27,7 @@ export default function DashboardPage() {
       <div className="flex">
         <DashboardSidebar />
         <main className="flex-1 p-6">
-          <div className="space-y-6">
-            <GanttChart />
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <div className="lg:col-span-2 space-y-6">
-                <CarListings />
-                <FeaturedCar />
-              </div>
-              <div className="lg:col-span-1">
-                <FilterPanel />
-              </div>
-            </div>
-          </div>
+          <GanttChart />
         </main>
       </div>
     </div>

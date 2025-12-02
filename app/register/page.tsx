@@ -3,9 +3,12 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { useApp } from '@/contexts/AppContext'
+import toast from 'react-hot-toast'
 
 export default function RegisterPage() {
   const router = useRouter()
+  const { login } = useApp()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -29,8 +32,9 @@ export default function RegisterPage() {
     // Simulate registration
     setTimeout(() => {
       if (formData.email && formData.password) {
-        localStorage.setItem('isAuthenticated', 'true')
-        localStorage.setItem('userEmail', formData.email)
+        const role = formData.email.includes('admin') ? 'admin' : 'customer'
+        login(formData.email, formData.name, role)
+        toast.success('Registration successful!')
         router.push('/dashboard')
       } else {
         setError('Please fill in all fields')
